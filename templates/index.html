@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CogniSearch AI — Document Q&A</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>CogniSearch AI</h1>
+    <p class="tagline">Upload documents, then ask questions grounded in their content.</p>
+    <p class="status" id="status">Checking backend…</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>1. Upload a document</h2>
+      <form id="upload-form">
+        <input type="file" id="file-input" accept=".pdf,.txt,.docx,.md" required>
+        <button type="submit">Upload &amp; Index</button>
+      </form>
+      <p id="upload-result" class="result"></p>
+
+      <h3>Indexed documents</h3>
+      <ul id="doc-list"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>2. Ask a question</h2>
+      <form id="query-form">
+        <textarea id="question-input" rows="3" placeholder="e.g. What does the report say about Q3 revenue?" required></textarea>
+        <button type="submit">Ask</button>
+      </form>
+      <div id="answer-box" class="result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>CogniSearch AI — Flask + FAISS/ChromaDB indexing pipeline for semantic document search.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
